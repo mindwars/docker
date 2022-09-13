@@ -226,7 +226,7 @@ services:
         ipv4_address: ${GRAYLOG_HOST}
 
   postgres:
-    image: postgres:11
+    image: postgres:14
     container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
