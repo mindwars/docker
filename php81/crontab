@@ -1,0 +1,3 @@
+@reboot root bash /global/setup.sh >> /dev/null 2>&1
+* * * * * root bash /global/setup.sh
+# Don't remove the empty line at the end of this file. It is required to run the cron job
