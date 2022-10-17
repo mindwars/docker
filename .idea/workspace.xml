@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="image added to php services">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.dist" afterDir="false" />
-    </list>
+    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="image added to php services" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +173,7 @@
       <workItem from="1664358259017" duration="8250000" />
       <workItem from="1664372440878" duration="1830000" />
       <workItem from="1665993404604" duration="4580000" />
-      <workItem from="1666004542232" duration="405000" />
+      <workItem from="1666004542232" duration="679000" />
     </task>
     <task id="LOCAL-00001" summary="phalcon added">
       <created>1598516362677</created>

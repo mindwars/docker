@@ -39,6 +39,7 @@ RUN  pecl install redis \
             exif \
             mysqli \
             pdo_mysql \
+            pdo_pgsql \
             soap \
             sockets \
             zip \
