@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="image added to php services">
-      <change afterPath="$PROJECT_DIR$/php81/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php81/crontab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php81/php.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php81_xdebug/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php81_xdebug/crontab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php81_xdebug/php.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" afterDir="false" />
@@ -61,24 +55,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/bulentdinler/Development/go/docker",
-    "nodejs_package_manager_path": "npm",
-    "ruby.rails.projectView.checked": "true",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bulentdinler/Development/go/docker&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -181,7 +175,10 @@
       <workItem from="1662501355929" duration="2949000" />
       <workItem from="1663683263643" duration="271000" />
       <workItem from="1663796795761" duration="579000" />
-      <workItem from="1664358259017" duration="7749000" />
+      <workItem from="1664358259017" duration="8250000" />
+      <workItem from="1664372440878" duration="1830000" />
+      <workItem from="1665993404604" duration="4580000" />
+      <workItem from="1666004542232" duration="405000" />
     </task>
     <task id="LOCAL-00001" summary="phalcon added">
       <created>1598516362677</created>

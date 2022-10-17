@@ -639,7 +639,7 @@ services:
       expose:
         - 9000
       volumes:
-        - ./php81/php.ini:/usr/local/etc/php/php.ini
+        - ./php81_xdebug/php.ini:/usr/local/etc/php/php.ini
         - ${PROJECT_DEFAULT_PATH}:/var/www/html/
         - ./global:/global
       networks:
