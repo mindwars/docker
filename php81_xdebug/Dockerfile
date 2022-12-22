@@ -18,9 +18,10 @@ RUN apt-get update \
         libmemcached-dev \
         freetds-dev \
         libyaml-dev \
-	libssl-dev \
-	openssl \
-	libcurl4-gnutls-dev
+        libpq-dev \
+        libssl-dev \
+        openssl \
+        libcurl4-gnutls-dev
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 && composer --version
@@ -31,7 +32,7 @@ RUN  pecl install redis \
     && pecl install mongodb \
     && pecl install yaml \
     && docker-php-ext-install \
-	    curl \
+	        curl \
             iconv \
             mbstring \
             intl \
@@ -45,11 +46,13 @@ RUN  pecl install redis \
             zip \
             pcntl \
             ftp \
+            amqp \
     && docker-php-ext-enable \
             redis \
             memcached \
             opcache \
-            mongodb
+            mongodb \
+            amqp \
 
 
 RUN pecl install xdebug-3.2.0alpha3
