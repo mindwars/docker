@@ -21,7 +21,8 @@ RUN apt-get update \
         libpq-dev \
         libssl-dev \
         openssl \
-        libcurl4-gnutls-dev
+        libcurl4-gnutls-dev \
+        librabbitmq-dev
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 && composer --version
@@ -31,6 +32,7 @@ RUN  pecl install redis \
     && pecl install memcached \
     && pecl install mongodb \
     && pecl install yaml \
+    && pecl install amqp \
     && docker-php-ext-install \
 	        curl \
             iconv \
@@ -46,13 +48,12 @@ RUN  pecl install redis \
             zip \
             pcntl \
             ftp \
-            amqp \
     && docker-php-ext-enable \
             redis \
             memcached \
             opcache \
             mongodb \
-            amqp \
+            amqp
 
 
 RUN pecl install xdebug-3.2.0alpha3
