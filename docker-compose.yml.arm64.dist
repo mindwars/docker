@@ -93,7 +93,7 @@ services:
         max-size: 50m
 
   elasticsearch_graylog:
-    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.3
+    image: 'elasticsearch:7.17.9'
     restart: always
     container_name: elasticsearch_graylog
     environment:
@@ -202,12 +202,12 @@ services:
         ipv4_address: ${MONGODB_HOST}
 
   graylog:
-    image: graylog/graylog:2.4.0-1
+    image: 'graylog/graylog:5.0'
     restart: always
     container_name: graylog
     environment:
-      - GRAYLOG_PASSWORD_SECRET=somepasswordpepper  #Password: admin
-      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      - GRAYLOG_PASSWORD_SECRET=3e9vp9fDgeMmCT4FnLCRsswktqmHxtYUfcTRX7eUCVKtNQpeWWAuWW8Bf6rZ5n9ANDLuBRaG6g9t27reFKyvUeY7vRuyzPb7
+      - GRAYLOG_ROOT_PASSWORD_SHA2=4bbdd5a829dba09d7a7ff4c1367be7d36a017b4267d728d31bd264f63debeaa6
       - GRAYLOG_WEB_ENDPOINT_URI=http://127.0.0.1:9000/api
     links:
       - mongodb:mongo
