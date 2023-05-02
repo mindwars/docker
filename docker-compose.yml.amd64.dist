@@ -185,7 +185,7 @@ services:
         ipv4_address: 172.28.1.9
 
   mongodb:
-    image: mongo:4.2
+    image: mongo:5.0
     container_name: mongodb
     restart: always
     environment:
