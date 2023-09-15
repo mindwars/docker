@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="Merge">
+    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="graylog config changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/etc/nginx/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php81/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php81/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php81/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/php81/php.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php82/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php82/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php82/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/php82/php.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -345,7 +348,9 @@
     <MESSAGE value="Nginx php72_xdebug bağımlılığı 81 olarak güncellendi." />
     <MESSAGE value="PHP 8.0 Kaldırıldı. &#10;PHP 8.x_xdebug'lar kaldırıldı.&#10;PHP 8.2 Eklendi." />
     <MESSAGE value="Merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge" />
+    <MESSAGE value="default php-fpm version changed&#10;rabbitmq mount error fix" />
+    <MESSAGE value="graylog config changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="graylog config changes" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

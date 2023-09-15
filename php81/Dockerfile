@@ -21,10 +21,14 @@ RUN apt-get update \
         libssl-dev \
         openssl \
         libcurl4-gnutls-dev \
-        libpq-dev
+        libpq-dev \
+        librabbitmq-dev
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 && composer --version
+
+RUN pecl install amqp \
+    && docker-php-ext-enable amqp \
 
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 
@@ -49,11 +53,13 @@ RUN  pecl install redis \
             pcntl \
             ftp \
             bcmath \
+            amqp \
     && docker-php-ext-enable \
             redis \
             memcached \
             opcache \
-            mongodb
+            mongodb \
+            amqp
 
 RUN docker-php-ext-install bcmath
 

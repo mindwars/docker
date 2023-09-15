@@ -21,7 +21,8 @@ RUN apt-get update \
         libssl-dev \
         openssl \
         libcurl4-gnutls-dev \
-        libpq-dev
+        libpq-dev \
+        librabbitmq-dev
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 && composer --version
@@ -33,7 +34,7 @@ RUN  pecl install redis \
     && pecl install mongodb \
     && pecl install yaml \
     && docker-php-ext-install \
-	    curl \
+	        curl \
             iconv \
             mbstring \
             intl \
@@ -49,11 +50,13 @@ RUN  pecl install redis \
             pcntl \
             ftp \
             bcmath \
+            amqp \
     && docker-php-ext-enable \
             redis \
             memcached \
             opcache \
-            mongodb
+            mongodb \
+            amqp
 
 RUN echo "extension=yaml.so" > /usr/local/etc/php/conf.d/yaml.ini
 
