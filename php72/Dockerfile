@@ -76,3 +76,4 @@ RUN apt-get -y install cron
 RUN apt-get install -y git
 
 CMD cron & php-fpm
+
