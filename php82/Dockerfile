@@ -1,4 +1,4 @@
-FROM php:8.1.11RC1-fpm
+FROM php:8.2-fpm
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
@@ -18,23 +18,22 @@ RUN apt-get update \
         libmemcached-dev \
         freetds-dev \
         libyaml-dev \
-        libpq-dev \
         libssl-dev \
         openssl \
         libcurl4-gnutls-dev \
-        librabbitmq-dev
+        libpq-dev
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 && composer --version
 
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 
 RUN  pecl install redis \
     && pecl install memcached \
     && pecl install mongodb \
     && pecl install yaml \
-    && pecl install amqp \
     && docker-php-ext-install \
-	        curl \
+	    curl \
             iconv \
             mbstring \
             intl \
@@ -43,23 +42,18 @@ RUN  pecl install redis \
             mysqli \
             pdo_mysql \
             pdo_pgsql \
+            pgsql \
             soap \
             sockets \
             zip \
             pcntl \
             ftp \
+            bcmath \
     && docker-php-ext-enable \
             redis \
             memcached \
             opcache \
-            mongodb \
-            amqp
-
-
-RUN pecl install xdebug-3.2.0alpha3
-RUN docker-php-ext-enable xdebug
-
-RUN docker-php-ext-install bcmath
+            mongodb
 
 RUN echo "extension=yaml.so" > /usr/local/etc/php/conf.d/yaml.ini
 
@@ -70,26 +64,6 @@ RUN apt-get update
 RUN apt-get -y install cron
 
 RUN apt-get install -y git
-
-ENV PHALCON_VERSION=3.4.0
-RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VERSION}" | tar -xz \
-    && cd cphalcon-${PHALCON_VERSION}/build \
-    && ./install \
-    && cp ../tests/_ci/phalcon.ini $(php-config --configure-options | grep -o "with-config-file-scan-dir=\([^ ]*\)" | awk -F'=' '{print $2}') \
-    && cd ../../ \
-    && rm -r cphalcon-${PHALCON_VERSION}
-
 RUN apt-get install -y --reinstall procps
-
-ARG XDEBUG_HOST
-ARG XDEBUG_PORT
-
-RUN echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/xdebug.ini \
-   && echo "xdebug.remote_autostart=1" >> /usr/local/etc/php/conf.d/xdebug.ini &&\
-   echo "xdebug.remote_connect_back=${XDEBUG_REMOTE_CONNECT_BACK}" >> /usr/local/etc/php/conf.d/xdebug.ini &&\
-   echo "xdebug.remote_handler = dbgp" >> /usr/local/etc/php/conf.d/xdebug.ini &&\
-   echo "xdebug.remote_mode = req" >> /usr/local/etc/php/conf.d/xdebug.ini &&\
-   echo "xdebug.remote_host=$XDEBUG_HOST" >> /usr/local/etc/php/conf.d/xdebug.ini &&\
-   echo "xdebug.remote_port=$XDEBUG_PORT" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 CMD cron & php-fpm

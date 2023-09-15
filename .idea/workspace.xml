@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="mongodb updated">
+    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="Nginx php72_xdebug bağımlılığı 81 olarak güncellendi.">
+      <change beforePath="$PROJECT_DIR$/.idea/docker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/docker.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php80/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php82/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php80/crontab" beforeDir="false" afterPath="$PROJECT_DIR$/php82/crontab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php80/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/php82/php.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php80_xdebug/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php80_xdebug/crontab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php80_xdebug/php.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php81/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php81/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php81_xdebug/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php81_xdebug/crontab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php81_xdebug/php.ini" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +29,7 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -52,6 +64,9 @@
     <xdebug_debug_ports port="9003" />
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$" selected_validation_type="LOCAL" web_path_to_validation_script="http://localhost" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
   <component name="ProjectId" id="1QWs17HmSAdVU9LDDHwyNHZOwEm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -65,12 +80,14 @@
     &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bulentdinler/Development/go/docker&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mahmutderhan/Development/others/docker/docker-env&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -204,6 +221,8 @@
       <workItem from="1687247250733" duration="1305000" />
       <workItem from="1687254062517" duration="652000" />
       <workItem from="1687271758612" duration="1715000" />
+      <workItem from="1687330089444" duration="1623000" />
+      <workItem from="1687348174182" duration="1175000" />
     </task>
     <task id="LOCAL-00001" summary="phalcon added">
       <created>1598516362677</created>
@@ -303,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683012963645</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Nginx php72_xdebug bağımlılığı 81 olarak güncellendi.">
+      <created>1687331743642</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1687331743642</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +355,8 @@
     <MESSAGE value="image added to php services" />
     <MESSAGE value="graylog updated" />
     <MESSAGE value="mongodb updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="mongodb updated" />
+    <MESSAGE value="Nginx php72_xdebug bağımlılığı 81 olarak güncellendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Nginx php72_xdebug bağımlılığı 81 olarak güncellendi." />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
