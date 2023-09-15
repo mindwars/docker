@@ -71,14 +71,11 @@ services:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
       RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_DEFAULT_VHOST}
-      RABBITMQ_PLUGINS_DIR: "/opt/rabbitmq/plugins:/usr/lib/rabbitmq/plugins"
     ports:
       - ${RABBITMQ_PORT}:15672
       - ${RABBITMQ_PORT2}:5672
     volumes:
       - ./rabbitmq_data:/var/lib/rabbitmq/mnesia
-      - ./rabbitmq_enabled_plugins:/etc/rabbitmq/enabled_plugins
-      - ./rabbitmq_plugins:/usr/lib/rabbitmq/plugins
     networks:
       net:
         ipv4_address: ${RABBITMQ_HOST}
