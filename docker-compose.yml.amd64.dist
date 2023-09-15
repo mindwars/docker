@@ -62,19 +62,23 @@ services:
       net:
 
   rabbitmq:
-    image: rabbitmq:3-management
+    image: rabbitmq:3.10.25-management
     restart: always
+    hostname: 'dev-rabbitmq'
     container_name: rabbitmq
     environment:
       RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
       RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_DEFAULT_VHOST}
+      RABBITMQ_PLUGINS_DIR: "/opt/rabbitmq/plugins:/usr/lib/rabbitmq/plugins"
     ports:
       - ${RABBITMQ_PORT}:15672
       - ${RABBITMQ_PORT2}:5672
     volumes:
-      - ./rabbitmq_data:/var/lib/rabbitmq
+      - ./rabbitmq_data:/var/lib/rabbitmq/mnesia
+      - ./rabbitmq_enabled_plugins:/etc/rabbitmq/enabled_plugins
+      - ./rabbitmq_plugins:/usr/lib/rabbitmq/plugins
     networks:
       net:
         ipv4_address: ${RABBITMQ_HOST}
@@ -131,7 +135,6 @@ services:
       - node.name=elasticsearch
       - cluster.name=docker-cluster
       - cluster.initial_master_nodes=elasticsearch
-      - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
       - ./etc/elasticsearch/jvm.options:/usr/share/elasticsearch/config/jvm.options
@@ -208,7 +211,8 @@ services:
     environment:
       - GRAYLOG_PASSWORD_SECRET=3e9vp9fDgeMmCT4FnLCRsswktqmHxtYUfcTRX7eUCVKtNQpeWWAuWW8Bf6rZ5n9ANDLuBRaG6g9t27reFKyvUeY7vRuyzPb7
       - GRAYLOG_ROOT_PASSWORD_SHA2=4bbdd5a829dba09d7a7ff4c1367be7d36a017b4267d728d31bd264f63debeaa6
-      - GRAYLOG_WEB_ENDPOINT_URI=http://127.0.0.1:9000/api
+      - GRAYLOG_WEB_ENDPOINT_URI=${GRAYLOG_URL}api
+      - GRAYLOG_HTTP_EXTERNAL_URI=${GRAYLOG_URL}
     links:
       - mongodb:mongo
       - elasticsearch_graylog:elasticsearch
@@ -321,8 +325,6 @@ services:
       - ./php72/php.ini:/usr/local/etc/php/php.ini
     ports:
       - ${PHPMYADMIN_PORT}:80
-    links:
-      - 'db:db'
 
   httpd:
     build: ./httpd
@@ -559,6 +561,26 @@ services:
       networks:
         net:
 
+  php81_xdebug:
+      image: hakanbaysal/php8.1-fpm-xdebug
+      tty: true
+      container_name: php81_xdebug
+      restart: always
+      links:
+        - global
+      environment:
+        XDEBUG_PORT: ${XDEBUG_PORT}
+        XDEBUG_HOST: ${XDEBUG_HOST}
+        XDEBUG_REMOTE_CONNECT_BACK: ${XDEBUG_REMOTE_CONNECT_BACK}
+      expose:
+        - 9000
+      volumes:
+        - ./php81_xdebug/php.ini:/usr/local/etc/php/php.ini
+        - ${PROJECT_DEFAULT_PATH}:/var/www/html/
+        - ./global:/global
+      networks:
+        net:
+
   php56_xdebug:
       image: onuragtas/php5.6-fpm-xdebug
       tty: true
@@ -606,39 +628,68 @@ services:
       FTP_PASSIVE_PORTS: "31200 31239"
 
   zookeeper:
+    container_name: zookeeper
     image: confluentinc/cp-zookeeper:latest
-    networks:
-      - net
+    restart: on-failure
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      net:
 
   kafka:
-    image: confluentinc/cp-kafka:latest
-    networks:
-      - net
+    container_name: kafka
+    image: confluentinc/cp-enterprise-kafka:latest
+    restart: on-failure
     depends_on:
       - zookeeper
-    ports:
-      - 9092:9092
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://192.168.36.240:9092
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-  kafdrop:
-    image: obsidiandynamics/kafdrop:latest
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka:29092
+      CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: zookeeper:2181
+      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+      CONFLUENT_METRICS_ENABLE: 'true'
+      CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+    ports:
+      - "9092:9092"
     networks:
-      - net
+      net:
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: kafka-ui
     depends_on:
       - kafka
     ports:
-      - ${KAFDROP_PORT}:9000
+      - "8080:8080"
+    restart: always
     environment:
-      KAFKA_BROKERCONNECT: kafka:29092
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=192.168.36.240:9092
+    networks:
+      net:
+
+  sonarqube:
+    image: sonarqube
+    container_name: sonarqube
+    ports:
+      - ${SONARQUBE_PORT}:9000
+    restart: always
+    volumes:
+      - sonar_data:/opt/sonarqube/data
+      - sonar_logs:/opt/sonarqube/logs
+      - sonar_extensions:/opt/sonarqube/extensions
+    networks:
+      net:
+
 
 networks:
     net:
@@ -647,7 +698,19 @@ networks:
         config:
           - subnet: 172.28.0.0/16
 volumes:
+  sonar_data:
+  sonar_logs:
+  sonar_extensions:
+  kafka-jmx-volume:
+  grafana-volume:
+  prometheus-volume:
   elasticsearch_data:
     driver: local
   global:
+    driver: local
+  zookeeper_log:
+    driver: local
+  zookeeper_data:
+    driver: local
+  kafka_data:
     driver: local

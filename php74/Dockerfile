@@ -72,3 +72,4 @@ RUN curl -sSL "https://codeload.github.com/phalcon/cphalcon/tar.gz/v${PHALCON_VE
     && rm -r cphalcon-${PHALCON_VERSION}
 
 CMD cron & php-fpm
+

@@ -1,0 +1,37 @@
+name: Docker Image DEVENV
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'devenv/**'
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - 'devenv/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      -
+        uses: actions/checkout@v3
+        name: Checkout
+      -
+        name: ls -la
+        run: ls -la
+      -
+        uses: docker/login-action@v2
+        name: Login to Docker Hub
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME_DEVENV }}
+          password: ${{ secrets.DOCKERHUB_TOKEN_DEVENV }}
+      -
+        uses: docker/setup-buildx-action@v2 
+        name: Setup buildx
+      -
+        name: Build the devenv
+        run:  docker buildx build --platform linux/amd64,linux/arm64 -t hakanbaysal/devenv:latest --push ./devenv/.

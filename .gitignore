@@ -9,7 +9,6 @@ logs/*
 Ssl/*
 mongo/*
 pgadmin/*
-postgres/*
 logs/access.log
 logs/error.log
 .env
@@ -18,3 +17,10 @@ global/hosts
 global/ip
 docker-compose.yml
 /global/dockerip
+rabbitmq_data/*
+elastic_graylog_data/*
+elasticsearch_data/*
+arangodb_data_container/*
+arangodb_apps_data_container/*
+.idea/workspace.xml
+.idea
