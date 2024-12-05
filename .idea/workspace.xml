@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="graylog config changes">
+    <list default="true" id="bbbb6c35-bdc5-4d61-a9dc-027d421aead4" name="Default Changelist" comment="Graylog password changed">
+      <change afterPath="$PROJECT_DIR$/go/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php73/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php73/crontab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php73/php.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php81/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php81/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php81/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/php81/php.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php82/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php82/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php82/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/php82/php.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.amd64.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.arm64.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml.dist" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +58,7 @@
     <xdebug_debug_ports port="9003" />
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="$PROJECT_DIR$" selected_validation_type="LOCAL" web_path_to_validation_script="http://localhost" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php@8.2/8.2.14/bin/php" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -77,6 +82,7 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/mahmutderhan/Development/others/docker/docker-env",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -91,6 +97,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/go" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/etc/nginx" />
@@ -130,6 +137,13 @@
         </serviceView>
       </list>
     </option>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -213,6 +227,7 @@
       <workItem from="1687271758612" duration="1715000" />
       <workItem from="1687330089444" duration="1623000" />
       <workItem from="1687348174182" duration="1175000" />
+      <workItem from="1733388293933" duration="3619000" />
     </task>
     <task id="LOCAL-00001" summary="phalcon added">
       <created>1598516362677</created>
@@ -350,7 +365,9 @@
     <MESSAGE value="Merge" />
     <MESSAGE value="default php-fpm version changed&#10;rabbitmq mount error fix" />
     <MESSAGE value="graylog config changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="graylog config changes" />
+    <MESSAGE value="Php amqp eklentisi eklendi" />
+    <MESSAGE value="Graylog password changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Graylog password changed" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

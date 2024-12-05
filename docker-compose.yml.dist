@@ -458,6 +458,26 @@ services:
     networks:
       net:
 
+  php73:
+    image: mindwars/php7.3-fpm
+    tty: true
+    container_name: php73
+    restart: always
+    links:
+      - global
+    environment:
+      PHP_IDE_CONFIG: ${PHP_IDE_CONFIG}
+      XDEBUG_PORT: ${XDEBUG_PORT}
+      XDEBUG_HOST: ${XDEBUG_HOST}
+      XDEBUG_REMOTE_CONNECT_BACK: ${XDEBUG_REMOTE_CONNECT_BACK}
+    expose:
+      - 9000
+    volumes:
+      - ${PROJECT_DEFAULT_PATH}:/var/www/html/
+      - ./global:/global
+    networks:
+      net:
+
   php71:
     image: onuragtas/php7.1-fpm
     tty: true
@@ -672,6 +692,22 @@ services:
     networks:
       net:
 
+  go:
+    build: ./go
+    platform: linux/amd64
+    container_name: go
+    restart: always
+    tty: true
+    networks:
+      net:
+        ipv4_address: ${GO_HOST}
+    ports:
+      - ${APACHE_PORT}:80
+      - ${APACHE_PORT2}:443
+    volumes:
+      - ${PROJECT_DEFAULT_PATH}:/var/www/html
+      - ${APACHE_SITES_ENABLED}:/etc/apache2/sites-enabled
+      - ./httpd/apache2.conf:/etc/apache2/apache2.conf
 
 networks:
     net:
